@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Box {{ box_id }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(3, 218, 198, 0.3);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    textarea {
+      background-color: #2c2c2c;
+      color: #f0f0f0;
+      border: 1px solid #444;
+      border-radius: 6px;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #03dac6;
+      color: #000;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #018786;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Item Entry: {{ box_id }}</h1>
+  <form method="POST">
+    <label for="description">Description:</label>
+    <input type="text" name="description" value="{{ data.description }}" placeholder="e.g. What is this?">
+
+    <label for="date">Date:</label>
+    <input type="date" name="date" value="{{ data.date }}">
+
+    <label for="time">Time:</label>
+    <input type="time" name="time" value="{{ data.time }}">
+
+    <label for="contents">Contents:</label>
+    <textarea name="contents" placeholder="Add description if you want here...">{{ data.contents }}</textarea>
+
+    <button type="submit">💾 Save</button>
+  </form>
+</body>
+</html>
